@@ -15,15 +15,15 @@ public class ExamenRedes {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int[][] matriz= new int[10][10];
+        String[][] matriz= new String[10][10];
         int i,j,a;
         for(i=0;i<10;i++){
             a = (10*i)+1;
             System.out.println("");
             for(j=0;j<10;j++){
-                matriz[i][j] = a;
+                matriz[i][j] = Integer.toString(a);
                 a++;
-                System.out.printf("%3d ",matriz[i][j]);
+                System.out.printf("%3s ",matriz[i][j]);
             }
         }
         System.out.println("\n");
@@ -33,7 +33,7 @@ public class ExamenRedes {
         }
     }
     
-    static void recorreMatriz(int [][] m,int fila,int columna){
+    static void recorreMatriz(String [][] m,int fila,int columna){
         int i,j;
         for(i=-1; i<2; i++){
             for(j=-1;j<2;j++){
@@ -47,5 +47,8 @@ public class ExamenRedes {
             }
         }
         System.out.println("estan alrededor de: "+m[fila][columna]);
+    }
+    static void creaMatriz(int filas,int columnas){
+        
     }
 }
