@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package examenredes;
 
 /**
@@ -11,9 +7,6 @@ package examenredes;
  */
 public class ExamenRedes {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         String[][] matriz= new String[10][10];
         int i,j,a;
@@ -38,7 +31,7 @@ public class ExamenRedes {
         for(i=-1; i<2; i++){
             for(j=-1;j<2;j++){
                 try{
-                if(m[fila+i][columna+j]!=m[fila][columna]){
+                if(!m[fila+i][columna+j].equals(m[fila][columna])){
                     System.out.print(m[fila+i][columna+j]+" ");
                 }
                 }catch(ArrayIndexOutOfBoundsException e){
