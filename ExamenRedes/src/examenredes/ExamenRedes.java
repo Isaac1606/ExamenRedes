@@ -46,6 +46,6 @@ public class ExamenRedes {
                 }
             }
         }
-        System.out.println("\nEstan alrededor de: "+m[fila][columna]);
+        System.out.println("estan alrededor de: "+m[fila][columna]);
     }
 }
