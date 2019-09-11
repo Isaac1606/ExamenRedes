@@ -1,5 +1,37 @@
 import random
+#Servidor TCP
+import sys
+import socket 
 
+
+'''
+mensaje = "Hello, World"
+
+sCliente =  sk.socket()
+sCliente.connect((HOST, PORT))
+print("Conectado")
+inp = input("Texto para enviar:")
+out = inp.encode("UTF8")
+print("Se ha enviado: " + str(out.decode("UTF-8")))
+sCliente.send(out)
+seguir = True
+while seguir:
+    ins = sCliente.recv(512)
+    insd = ins.decode("UTF8")
+    print("Servidor retorna: " + str(insd))
+    inp = input("Texto para enviar:")
+    print("Enviar " + str(inp))
+    salida = inp.encode("UTF8")
+    print("Salida tiene antes de enviar: " + str(salida.decode("utf8")))
+    lene = sCliente.send(salida)
+    print("Se han enviado: " + str(lene) + " :bytes al servidor")
+    if inp == "exit":
+        seguir = False
+    #salida = None
+    ins = ""
+sCliente.close()
+print("Terminado")
+'''
 def llenaMatriz(m):
     m.append(2)
     pass
@@ -105,6 +137,49 @@ imprimeMatriz(matriz)
 print(f"\n\ncontador de minas: {contarMinas(matriz)}")
 
 cadena = creaCadenaMatriz(matriz)
+
+cadena = cadena.replace("-1","B")
+
+#Ip
+HOST = "10.100.64.168"
+#HOST = "127.0.0.1"
+# 
+PORT = 9000
+#Header size
+HEADERSIZE = 10
+
+# Use the socket object without calling s.close().
+with socket.socket(socket.AF_INET,socket.SOCK_STREAM) as servidor:
+
+    servidor.bind((HOST,PORT))
+ 
+    while True:
+        servidor.listen()
+      
+        conn, addr = servidor.accept() 
+        # The with statement is used with conn 
+        # to automatically close the socket at the end of the block.
+        with conn:
+            print(f"Connection from {addr} has been established.")
+            while True:
+                data = conn.recv(500)
+                data = data.decode("UTF8")
+                print("Cliente envia: " + str(data))
+                #inp = input("Texto para enviar:")
+
+                print("Enviar " + str(cadena))
+                salida = cadena.encode("UTF8")
+                print("Salida tiene antes de enviar: " + str(salida.decode("utf8")))
+                conn.send(str(len(cadena)).encode("UTF8"))
+                lene = conn.send(salida)
+                print("Se han enviado: " + str(lene) + " :bytes al cliente")
+                
+                if not data:
+                    break 
+                
+                
+                
+            
 
 print(f"\nLa cadena de esta matriz es: {cadena}\ny su longitud es {len(cadena)}")
 
