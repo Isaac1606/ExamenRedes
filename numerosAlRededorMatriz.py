@@ -3,35 +3,6 @@ import random
 import sys
 import socket 
 
-
-'''
-mensaje = "Hello, World"
-
-sCliente =  sk.socket()
-sCliente.connect((HOST, PORT))
-print("Conectado")
-inp = input("Texto para enviar:")
-out = inp.encode("UTF8")
-print("Se ha enviado: " + str(out.decode("UTF-8")))
-sCliente.send(out)
-seguir = True
-while seguir:
-    ins = sCliente.recv(512)
-    insd = ins.decode("UTF8")
-    print("Servidor retorna: " + str(insd))
-    inp = input("Texto para enviar:")
-    print("Enviar " + str(inp))
-    salida = inp.encode("UTF8")
-    print("Salida tiene antes de enviar: " + str(salida.decode("utf8")))
-    lene = sCliente.send(salida)
-    print("Se han enviado: " + str(lene) + " :bytes al servidor")
-    if inp == "exit":
-        seguir = False
-    #salida = None
-    ins = ""
-sCliente.close()
-print("Terminado")
-'''
 def llenaMatriz(m):
     m.append(2)
     pass
